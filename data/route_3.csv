@@ -1,0 +1,6 @@
+route,position,action,direction,capacity,landmark
+route 3,10,go,,20,
+route 3,20,go,east,20,
+route 3,30,go,south,30,
+route 3,40,turn,right,,
+route 3,50,go,,,Start
