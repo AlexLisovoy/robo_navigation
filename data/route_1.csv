@@ -1,0 +1,16 @@
+route,position,action,direction,capacity
+route 1,10,go,,10
+route 1,20,turn,right,
+route 1,30,go,,40
+route 1,40,turn,left,
+route 1,50,go,,20
+route 1,60,go,west,40
+route 1,70,go,north,40
+route 1,80,go,east,50
+route 1,90,go,south,10
+route 1,100,go,west,40
+route 1,110,go,south,20
+route 1,120,go,east,40
+route 1,130,go,south,40
+route 1,130,go,south,40
+route 1,140,go,west,Statue of Old Man

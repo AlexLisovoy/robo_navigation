@@ -1,0 +1,11 @@
+ipdb
+ipython
+flake8
+flake8-blind-except
+flake8-builtins
+flake8-logging-format
+flake8-import-order
+pytest
+pytest-sugar
+coverage
+pytest-cov
