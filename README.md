@@ -2,24 +2,25 @@
 
 ## Assumptions
 
- 1. Each unit/block has the same size.
- 2. The robot moves uniformly at the same speed
- 3. The robot can move only by edge of unit/block. Diagonal movement is prohibited.
- 4. In initial/start point the robot is always facing to north.
- 5. The route is always correct and it's not possible to go out of the Northern or Eastern edges.
+ 1. Each block has the same size.
+ 2. A robot moves uniformly at the same speed.
+ 3. A robot can move only by edge of block. Diagonal movement is prohibited.
+ 4. In initial/start point a robot is always facing to north.
+ 5. The route is always correct and it's not possible to go out of any edges.
 
 ## Route Specification
 
 A route is an ordered list of steps.
 Each step can be described by 4 main criterias:
 
- 1. Action - describes the action that the robot must perform. Possible values: go, turn.
- 2. Direction - describes in which way the robot must perform action. Empty Direction means that the robot is already in right direction. Possible values: left, right, north, east, south and west.
- 3. Capacity - describes how many units/blocks a robot must perform to be consider action as completed. Also can contains coordinate in landmark case.
- 3. Landmark - local names of specific coordinates. For example: Statue of Old Man.
+ 1. *Action* - describes the action that the robot must perform. Possible values: **go**, **turn**.
+ 2. *Direction* - describes in which way the robot must perform action. Empty Direction means that the robot is already in right direction. Possible values: **left**, **right**, **north**, **east**, **south** and **west**.
+ 3. *Capacity* - describes how many units/blocks a robot must perform to be consider action as completed. Also can contains coordinate in landmark case.
+ 3. *Landmark* - local names of specific coordinates. For example: Statue of Old Man.
 
  Example of route(the route is stored in CSV format):
 
+```
 route,position,action,direction,capacity,landmark
 route 1,10,go,north,10,
 route 1,20,turn,left,,
@@ -27,16 +28,21 @@ route 1,30,go,,5,
 route 1,40,turn,right,,
 route 1,50,go,,10,
 route 1,60,go,east,,Statue of Old Man
+```
 
-You can found more routes under data folder.
+You can found more routes under [data folder](../master/data).
 
 ## Database schema
 
 ![Infrastructure of the service](https://github.com/AlexLisovoy/robo_navigation/blob/master/db.svg)
 
-You can found raw sql definition under db folder.
+You can found raw sql definition under [db folder](../master/db).
 
-## Instalation
+## Implementation
+
+This implementation is a bit naive and implements only the happy path. Also it does not do any validation of input data, routes or find effective route.
+
+### Instalation
 
 To install project just execute command:
 
@@ -44,21 +50,21 @@ To install project just execute command:
 $ pip install -e .
 ```
 
-## Run the implementation
+### Run the script
 
-To run interpretator you should provide the route in CSV file. For example:
+To run interpretator you should provide the **route**(CSV file). For example:
 
 ```
 $ robo-navigation data/route_1.csv
 ```
 
-The script also support to change start point. To do this provide optional argmunent start_at:
+The script also support to change _start point_. To do this provide optional argmunent _start_at_:
 
 ```
 $ robo-navigation data/route_1.csv --start_at 40 10
 ```
 
-## Preconditions for running tests
+### Preconditions for running tests
 
 We expect you to use a python virtual environment to run our tests.
 
@@ -87,7 +93,7 @@ $ pip install -r requirements-dev.txt
 Congratulations, you are ready to run tests.
 
 
-## Run tests
+### Run tests
 
 After all the preconditions are met you can run tests typing the next command:
 
@@ -110,7 +116,7 @@ $ make vtest
 to run the tests.
 
 
-## Tests coverage
+### Tests coverage
 
 Use:
 
